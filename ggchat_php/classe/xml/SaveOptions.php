@@ -11,5 +11,5 @@ namespace GChat\classe\xml;
 		fwrite($file,$xml);
 		fclose($file);
 		
-header('Location: ../../options.php');
+header('Location: ../../membre.php');
 exit();

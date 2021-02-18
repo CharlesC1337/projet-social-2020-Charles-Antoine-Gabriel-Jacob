@@ -80,8 +80,8 @@ class ChatPrive extends Page
                 {
                     $pic="<img class='chatPic' src='img/compte_img.png' alt='Profile picture'>" ;
                 }
-                $name = "<a>".$data['membre_uid']."</a>";
-                $this->doc .= "<p>".$name.$pic." : ".$row["message_prive_contenu"]."</p>";
+                $name = "<b>".$data['membre_uid']."</b>";
+                $this->doc .= "<p class=\"textChat\">".$pic.$name." : ".$row["message_prive_contenu"]."</p>";
             }
             $this->doc.='</div>';
         }
@@ -94,8 +94,8 @@ class ChatPrive extends Page
     public function chatInput()
     {
         $this->doc .= '<form class="globalChatInput" action="chatPrive.php?membre='.$_GET["membre"].'" method="POST" >
-            <input type="text" name="textGlobal" id="txt_1" placeholder="Envoyer un message"  >
-            <button type="submit" name="submit">Envoyer</button>
+            <input type="text" name="textGlobal" id="txt_1" placeholder="Envoyer un message" >
+            <button class="sendButton" type="submit" name="submit"><img src="img/sendIcon.png"></button>
             <input name="f_id" type="hidden" value="msgSend">
             </form>';    
     }

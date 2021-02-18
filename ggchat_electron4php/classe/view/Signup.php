@@ -14,7 +14,7 @@ class Signup extends Page
   {
       parent::__construct();
 
-      $this->title= 'signUp';
+      $this->title= 'Inscription';
 
   }
     public function signCheck()
@@ -49,7 +49,7 @@ class Signup extends Page
 
             if (false)//strpos($uid, '<') !== false||strpos($a, '>') !== false
             {
-                header("location: ../signUp.php?signUp=NoInjectionXd");
+                header("location: ../signUp.php?signUp=NoInjection");
 
                     exit();
 
@@ -71,7 +71,7 @@ class Signup extends Page
                 {
                     if (preg_match("/^[a-zA-Z0-9]+$/",$first == 1)||preg_match("/^[a-zA-Z0-9]+$/",$last == 1 ))
                     {
-                       header("location: signup.php?signUp=noSpecialCaractere");
+                       header("location: signup.php?signUp=noSpecialChar");
                         exit();  
                     }
                     else
@@ -119,7 +119,7 @@ class Signup extends Page
 
                                 $sql->execute();
 
-                                header("location: signup.php?signup=Sucsess");
+                                header("location: signup.php?signup=Success");
                                 exit(); 
                             }  
 
@@ -139,13 +139,19 @@ class Signup extends Page
     }
     public function signUpHtml()
     {
+        $this->doc .= '<h1 id="titrePageh1">Inscription</h1>';
         $this->doc .= '<form class="signUp" action="signup.php" method="POST" >
-            <input type="text" name="first" placeholder="Firstname">
-            <input type="text" name="last" placeholder="Lastname">
-            <input type="text" name="email" placeholder="E-mail">
-            <input type="text" name="uid" placeholder="Username">
-            <input type="password" name="pwd" placeholder="password">
-            <button type="submit" name="submit">Sign up</button>
+            <label class="labelInscription" for="first">Prenom</label>
+            <input type="text" name="first" placeholder="Prenom">
+            <label class="labelInscription" for="last">Nom</label>
+            <input type="text" name="last" placeholder="Nom">
+            <label class="labelInscription" for="email">Courriel</label>
+            <input type="text" name="email" placeholder="Courriel">
+            <label class="labelInscription" for="uid">Nom d\'utilisateur</label>
+            <input type="text" name="uid" placeholder="Nom d\'utilisateur">
+            <label class="labelInscription" for="pwd">Mot de passe</label>
+            <input type="password" name="pwd" placeholder="Mot de passe">
+            <button type="submit" name="submit">Inscription</button>
             <input name= "f_id" type="hidden" value="signup">
             </form>';
         

@@ -14,7 +14,7 @@ class ChatGroupeDetail extends Page
   {
       parent::__construct();
       
-      $this->title= 'Groupe Chat détail';
+      $this->title= $_GET["groupe"];
     
   }
     public function chatCheck()
@@ -84,8 +84,8 @@ class ChatGroupeDetail extends Page
                     $pic="<img class='chatPic' src='img/compte_img.png' alt='Profile picture'>" ;
 
                 }
-                $name = "<a>".$data['membre_uid']."</a>";
-                $this->doc .= "<p>".$name.$pic." : ".$row["message_groupe_contenu"]."</p>";
+                $name = "<b>".$data['membre_uid']."</b>";
+                $this->doc .= "<p class=\"textChat\">".$pic.$name." : ".$row["message_groupe_contenu"]."</p>";
             
                 
                 
@@ -101,8 +101,8 @@ class ChatGroupeDetail extends Page
     {
 
         $this->doc .= '<form class="globalChatInput" action="chatGroupeDetail.php?groupe='.$_GET["groupe"].'" method="POST" >
-            <input type="text" name="textGlobal" id="txt_1" placeholder="Envoyer un message"  >
-            <button type="submit" name="submit">Envoyer</button>
+            <input type="text" name="textGlobal" id="txt_1" placeholder="Envoyer un message" >
+            <button class="sendButton" type="submit" name="submit"><img src="img/sendIcon.png"></button>
             <input name="f_id" type="hidden" value="msgSend">
             </form>';    
     }

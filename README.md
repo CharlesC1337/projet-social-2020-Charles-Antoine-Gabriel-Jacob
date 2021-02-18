@@ -13,6 +13,8 @@ Fiche de remise : https://docs.google.com/presentation/d/1mo011MwXWcd-ysc6iVHE_5
 
 ## Vidéo de présentation
 
+### À nôté que le visuel de l'application dans la vidéo n'est plus à jour!
+
 https://youtu.be/cAOY5tcosTw
 
 ## Informations d'installations : 

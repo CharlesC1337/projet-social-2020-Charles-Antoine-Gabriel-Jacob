@@ -20,14 +20,14 @@ class Contact extends Page
     public function tableComputer()
     {
         $contactDAO = new ContactDAO();
-        
+        $this->doc .= '<h1 id="titrePageh1">Liste des contacts</h1>';
         $this->doc .= '<table>
         <thead>
         <tr>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Email</th>
-        <th>Username</th>
+        <th>Prenom</th>
+        <th>Nom de famille</th>
+        <th>Courriel</th>
+        <th>Nom utilisateur</th>
         <th></th>
         </tr>
         </thead>

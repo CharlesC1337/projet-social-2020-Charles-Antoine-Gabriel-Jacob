@@ -63,12 +63,11 @@ class Page
            $this->doc .='
             <a class="button" href="contact.php" >Contact</a>
             <a class="button" href="membre.php" >Membre</a>
-            <a class="button" href="chatGroupe.php"  >Group Chat</a>
-            <a class="button" href="statistique.php"  >Statistique</a>
-            <a  href="options.php"><img src="img/settings.png" style ="width:52px; float:right;"/></a>';
+            <a class="button" href="chatGroupe.php"  >Chat</a>
+            <a class="button" href="statistique.php"  >Statistique</a>';
             $this->doc .='<form class="logout"'.$currentPage.'" method="POST">
             <input name="log_id" type="hidden" value="logout">
-            <button id="logout" type="submit" name="submit">Logout</button>';
+            <button id="logout" type="submit" name="submit">Déconnexion</button>';
             $this->doc .= '<b id="nameUser">'.$_SESSION["u_uid"].'</b>';
            $profilePic='img_user/'.$_SESSION['u_id'].'_img.png';
             if (file_exists ($profilePic))
@@ -88,12 +87,12 @@ class Page
         else
         {
             $this->doc .='
-            <a class="button" href="signup.php" >Sign up</a>';
+            <a class="button" href="signup.php" >Inscription</a>';
             $this->doc .= ' <form class="login" action="'.$currentPage.'" method="POST" >
-            <input type="text" name="uid" placeholder="Username/e-mail">
-            <input type="password" name="pwd" placeholder="password">
+            <input class="loginForm" type="text" name="uid" placeholder="Nom d\'utilisateur/Courriel">
+            <input class="loginForm" type="password" name="pwd" placeholder="Mot de passe">
             <input name="log_id" type="hidden" value="login">
-            <button name="submit" type="submit">login</button></form>
+            <button name="submit" type="submit">Connexion</button></form>
 			
 			';
         } 
