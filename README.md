@@ -19,7 +19,7 @@ https://youtu.be/cAOY5tcosTw
 
 ## Informations d'installations : 
 
-1. Télécharger le dossier "ggchat_electron4php" présent dans https://github.com/cegepmatane/projet-social-2020-Charles-Antoine-Gabriel-Jacob et le mettre ou vous voulez.
+1. Télécharger le dossier "ggchat_electron4php" présent dans https://github.com/CharlesC1337/projet-social-2020-Charles-Antoine-Gabriel-Jacob et le mettre ou vous voulez.
 
 2. Télécharger node.js si pas déjà fait et ouvrir node.js command prompt.
 
