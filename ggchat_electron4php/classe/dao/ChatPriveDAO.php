@@ -54,3 +54,4 @@ class ChatPriveDAO
         return $data;
     }
 }
+?>

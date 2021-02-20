@@ -3,26 +3,20 @@ namespace GGChat\classe;
 
 class Page
 {
-
     protected $title;
     public $currentPage;
     public $doc; 
     
     public function __construct() // Constructeur
-    {
-        
-        
+    {   
         $this->title = '';
         $this->currentPage = '';
         $this->doc = '';
-    
     }
     
     public function affiche($doc)
     {
-
 	   echo $doc;
-        
     }
     
     public function htmlHead()
@@ -42,23 +36,17 @@ class Page
         $this->doc .= '
         </head>
         <body>';
-
-       
-
     }
+    
     public function htmlTopNav($currentPage)
     {
-        
-    
-
-
-    $this->doc .= '<div style="box-shadow: rgba(0, 0, 0, 0.3) 9px -5px 84px 21.9939px;" class="topnav" id="myTopnav">
+        $this->doc .= '<div style="box-shadow: rgba(0, 0, 0, 0.3) 9px -5px 84px 21.9939px;" class="topnav" id="myTopnav">
         <a class="button" href="index.php"  >Accueil</a>
         <a class="button" href="help.php"  >Aide</a>
-    
-    
+
         ';//<a href="map.php"  >Carte</a>
-       if (isset($_SESSION['u_id']))
+        
+        if (isset($_SESSION['u_id']))
         {   
            $this->doc .='
             <a class="button" href="contact.php" >Contact</a>
@@ -69,19 +57,17 @@ class Page
             <input name="log_id" type="hidden" value="logout">
             <button id="logout" type="submit" name="submit">Déconnexion</button>';
             $this->doc .= '<b id="nameUser">'.$_SESSION["u_uid"].'</b>';
-           $profilePic='img_user/'.$_SESSION['u_id'].'_img.png';
+            $profilePic='img_user/'.$_SESSION['u_id'].'_img.png';
+            
             if (file_exists ($profilePic))
             {
-
                 $this->doc .= "<a href='membre.php' ><img id ='profilePicTop' src='$profilePic' alt='Profile picture'></a>";
-
             }
             else
             {
-
                 $this->doc .="<a href='membre.php' ><img id ='profilePicTop' src='img/compte_img.png' alt='Profile picture'></a>" ;
-
             }
+            
            $this->doc .='</form>';
         }
         else
@@ -93,7 +79,6 @@ class Page
             <input class="loginForm" type="password" name="pwd" placeholder="Mot de passe">
             <input name="log_id" type="hidden" value="login">
             <button name="submit" type="submit">Connexion</button></form>
-			
 			';
         } 
      
@@ -102,26 +87,11 @@ class Page
         <i class="fa fa-bars"></i>
         </a>
         </div>';
-        
-       
-        
-    
-
     }
     
     public function Htmlclose()
     {
         $this->doc .= '</body></html>';
     }
-
-    
-
 }
-
-
-
-
-
-
-
-
+?>

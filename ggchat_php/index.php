@@ -7,12 +7,10 @@ require_once('classe/checker/Login.php');//pour le login
 require_once('classe/checker/Logout.php');//pour le lougout
 require_once('classe/view/Index.php');//pour index
 
-
 use GGChat\classe\Page as Page;
 use GGChat\classe\checker\Login as Login;
 use GGChat\classe\checker\Logout as Logout;
 use GGChat\classe\view\Index as Index;
-
 
 session_start();
 
@@ -24,9 +22,7 @@ $LogoutTopNav = new Logout();//création login
 
 $LogoutTopNav->check();//check pour le logout submit
 
-
 //--------------------------index--------------------------------//
-
 
 $PageIndexPrincipal = new Index(); 
 
@@ -34,15 +30,9 @@ $PageIndexPrincipal->htmlHead($PageIndexPrincipal->title);
 
 $PageIndexPrincipal->htmlTopNav('index.php');
 
-
 $PageIndexPrincipal->contenuPresentation();
-
 
 $PageIndexPrincipal->Htmlclose();
 
 $PageIndexPrincipal->affiche($PageIndexPrincipal->doc);
-
-
-
-
-
+?>

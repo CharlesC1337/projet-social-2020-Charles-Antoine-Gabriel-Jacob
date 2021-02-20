@@ -1,7 +1,6 @@
 <?php
 namespace GChat\classe\xml;
 
-
 		$xml_file_name = "options.xml";
 			
 		$file = fopen($xml_file_name, "w") or die("wtf");
@@ -13,3 +12,4 @@ namespace GChat\classe\xml;
 		
 header('Location: ../../membre.php');
 exit();
+?>

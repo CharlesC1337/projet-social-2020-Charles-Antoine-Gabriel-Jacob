@@ -1,5 +1,5 @@
 <?php
-namespace GG\tp1;
+namespace GGChat;
 
 session_start();
 
@@ -22,11 +22,6 @@ use GGChat\classe\dao\ProfilePicDAO as ProfilePic;
 use GGChat\classe\dao\RenameDAO as Rename;
 use GGChat\classe\dao\AddGroupDAO as AddGroup;
 
-
-
-
-
-
 $LoginTopNav = new Login();//création login
 
 $LoginTopNav->check();//check pour le login submit
@@ -34,7 +29,6 @@ $LoginTopNav->check();//check pour le login submit
 $LogoutTopNav = new Logout();//création login
 
 $LogoutTopNav->check();//check pour le logout submit
-
 
 //------------------------form-membre----------------------------//
 
@@ -50,28 +44,9 @@ $AddGroupChecker = new AddGroup();
 
 $AddGroupChecker->check();
 
-
-
-
-
-
-
-
-
-
 //--------------------------membre--------------------------------//
 
-
-
-
-
-
-
-
-
-
 $PageMembrePrincipal = new Membre(); 
-
 
 $PageMembrePrincipal->htmlHead();
 
@@ -82,12 +57,4 @@ $PageMembrePrincipal->formulaire();
 $PageMembrePrincipal->Htmlclose();
 
 $PageMembrePrincipal->affiche($PageMembrePrincipal->doc);
-
-
-
-
-
-
-
-
 ?>

@@ -5,11 +5,11 @@ use PDO;
 
 class Dbh
 {
-
     public function __construct()
     {
         
     }
+    
     public function getDbh()
     {
         $dsn = 'pgsql:dbname=ggchat;host=192.99.151.9';

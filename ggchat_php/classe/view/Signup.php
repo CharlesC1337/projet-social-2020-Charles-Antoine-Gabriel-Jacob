@@ -7,31 +7,24 @@ use PDO;
 
 class Signup extends Page
 {
-  
-  public $title;
+    public $title;
 
-  public function __construct() // Constructeur demandant 2 paramètres
-  {
-      parent::__construct();
+    public function __construct() // Constructeur demandant 2 paramètres
+    {
+        parent::__construct();
 
-      $this->title= 'Inscription';
-
-  }
+        $this->title= 'Inscription';
+    }
+    
     public function signCheck()
     {
-        
         if (isset( $_POST['f_id']))
         {
-            
-
             $firstpg = pg_escape_string($_REQUEST['first']);
             $lastpg = pg_escape_string($_REQUEST['last']);
             $emailpg = pg_escape_string($_REQUEST['email']);
             $uidpg = pg_escape_string($_REQUEST['uid']);
             $pwdpg = pg_escape_string($_REQUEST['pwd']);
-
-
-
 
             $first = htmlspecialchars($firstpg);
             $last = htmlspecialchars($lastpg);
@@ -39,39 +32,27 @@ class Signup extends Page
             $uid = htmlspecialchars($uidpg);
             $pwd = htmlspecialchars($pwdpg);
 
-
-
-
-
             //error handler 
             //check empty fields 
-
 
             if (false)//strpos($uid, '<') !== false||strpos($a, '>') !== false
             {
                 header("location: ../signUp.php?signUp=NoInjection");
-
-                    exit();
-
+                exit();
             }
             else
             {
-
-
                 if (empty($first) || empty($last) ||empty($email) ||empty($uid) ||empty($pwd))
                 {
-
                     //echo "<script>alert('empty')/script>";
                     header("location: signup.php?signUp=empty");
-
                     exit(); 
                 }
-
                 else//valid character check
                 {
                     if (preg_match("/^[a-zA-Z0-9]+$/",$first == 1)||preg_match("/^[a-zA-Z0-9]+$/",$last == 1 ))
                     {
-                       header("location: signup.php?signUp=noSpecialChar");
+                        header("location: signup.php?signUp=noSpecialChar");
                         exit();  
                     }
                     else
@@ -83,9 +64,8 @@ class Signup extends Page
                         }
                         else
                         {
-
                             $DbhObject = new Dbh();
-
+                            
                             $dbh = $DbhObject->getDbh();
                             $sql = $dbh->prepare("SELECT * FROM membre WHERE membre_uid=:uid OR membre_email=:email");
                             $sql->bindParam(':uid', $uid);
@@ -93,7 +73,6 @@ class Signup extends Page
                             $sql->execute();
                             $data = $sql->fetchAll();
                             $rows = count($data);
-
 
                             if ($rows>0 )
                             {
@@ -106,7 +85,6 @@ class Signup extends Page
                             {
                                 //hasshing
                                 $hashedPwd = password_hash($pwd,PASSWORD_DEFAULT);
-
 
                                 $sql= $dbh->prepare("INSERT INTO membre 
                                 ( membre_admin,membre_first,membre_last,membre_email,membre_uid,membre_pwd) 
@@ -122,21 +100,13 @@ class Signup extends Page
                                 header("location: signup.php?signup=Success");
                                 exit(); 
                             }  
-
                         }
-
                     }
                 }
             }
-
-        }
-        
-        
-        
-        
-        
-        
+        }  
     }
+    
     public function signUpHtml()
     {
         $this->doc .= '<h1 id="titrePageh1">Inscription</h1>';
@@ -153,9 +123,7 @@ class Signup extends Page
             <input type="password" name="pwd" placeholder="Mot de passe">
             <button type="submit" name="submit">Inscription</button>
             <input name= "f_id" type="hidden" value="signup">
-            </form>';
-        
+            </form>';  
     }
-
-
 }
+?>

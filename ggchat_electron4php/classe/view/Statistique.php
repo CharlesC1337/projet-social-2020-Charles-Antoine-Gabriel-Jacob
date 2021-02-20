@@ -8,42 +8,42 @@ use PDO;
 
 class Statistique extends Page
 {
-  public $title;
+    public $title;
 
-  public function __construct() // Constructeur demandant 2 paramètres
-  {
-      parent::__construct();
-      
-      $this->title= 'Statistique';
+    public function __construct() // Constructeur demandant 2 paramètres
+    {
+        parent::__construct();
+
+        $this->title= 'Statistique';
+    }
     
-  }
     public function listerContenu()
     {
-      $stringGroup = "";
-      $stringLabel = "";
+        $stringGroup = "";
+        $stringLabel = "";
 
-      $statistiqueDAO = new StatistiqueDAO();
-      $listeContenuGroup = $statistiqueDAO->getNombreMsgGroup();
+        $statistiqueDAO = new StatistiqueDAO();
+        $listeContenuGroup = $statistiqueDAO->getNombreMsgGroup();
 
-      foreach($listeContenuGroup as $resultat)
-      {
-        $listeContenuLabel = $statistiqueDAO->getListeContenuLabel($resultat);
-        $stringGroup.="'".$resultat["nombre"]."',";
-        $stringLabel.="'".$listeContenuLabel["groupe_nom"]."',";
-      }
+        foreach($listeContenuGroup as $resultat)
+        {
+            $listeContenuLabel = $statistiqueDAO->getListeContenuLabel($resultat);
+            $stringGroup.="'".$resultat["nombre"]."',";
+            $stringLabel.="'".$listeContenuLabel["groupe_nom"]."',";
+        }
 
         //$this->doc.='<a>test</a>';
 
         /*echo $resultat["groupe_fkey"];
         echo $resultat["nombre"];
-       $this->doc.='<ul>';*/
-       $this->doc.='<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-       <h1 style="text-align: center; color: white;">Statistique</h1>
-       <h2 style="text-align: center; color: white;">Nombre de messages par groupe de discussion</h2>
-       <div class="chart-container" style="position: relative; height:20vh; width: 100%; text-align:center">
+        $this->doc.='<ul>';*/
+        $this->doc.='<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <h1 style="text-align: center; color: white;">Statistique</h1>
+        <h2 style="text-align: center; color: white;">Nombre de messages par groupe de discussion</h2>
+        <div class="chart-container" style="position: relative; height:20vh; width: 100%; text-align:center">
               <canvas id="graphique" style="display: inline;" ></canvas>
-      </div>
-      <script>
+        </div>
+        <script>
             var donnees = ['.$stringGroup.'];
             var ctx = document.getElementById("graphique").getContext("2d");
             var chart = new Chart(ctx, {
@@ -66,6 +66,5 @@ class Statistique extends Page
           });
           </script>';
     }
-
 }
-
+?>

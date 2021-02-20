@@ -1,7 +1,7 @@
 <?php
+namespace GGChat;
 
 session_start();
-
 
 require_once ('includes/dbh.inc.php');
 require_once('classe/Page.php');//pour la classe page
@@ -14,7 +14,6 @@ use GGChat\classe\checker\Login as Login;
 use GGChat\classe\checker\Logout as Logout;
 use GGChat\classe\view\Signup as Signup;
 
-
 $LoginTopNav = new Login();//création login
 
 $LoginTopNav->check();//check pour le login submit
@@ -23,9 +22,7 @@ $LogoutTopNav = new Logout();//création login
 
 $LogoutTopNav->check();//check pour le logout submit
 
-
 //--------------------------signUp--------------------------------//
-
 
 $PageSignUpPrincipal = new Signup(); 
 
@@ -40,7 +37,4 @@ $PageSignUpPrincipal->signUpHtml();
 $PageSignUpPrincipal->Htmlclose();
 
 $PageSignUpPrincipal->affiche($PageSignUpPrincipal->doc);
-
-
- 
-
+?>

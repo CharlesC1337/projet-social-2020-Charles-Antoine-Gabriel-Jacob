@@ -17,6 +17,7 @@ class ChatGroupeDetailDAO
 
         return $group_row;
     }
+    
     public function getMessageGroup($group_row)
     {
         
@@ -29,6 +30,7 @@ class ChatGroupeDetailDAO
 
         return $data;
     }
+    
     public function getMembreWhereId($row)
     {
         $DbhObject = new Dbh();
@@ -40,6 +42,7 @@ class ChatGroupeDetailDAO
 
         return $data;
     }
+    
     public function getGroupeWhereNom($groupe)
     {
         $DbhObject = new Dbh();
@@ -51,6 +54,7 @@ class ChatGroupeDetailDAO
 
         return $data;
     }
+    
     public function insertMessageGroupe($group_id,$message_groupe_contenu){
         $DbhObject = new Dbh();
         $dbh = $DbhObject->getDbh();
@@ -62,3 +66,4 @@ class ChatGroupeDetailDAO
         $sql->execute();
     }
 }
+?>

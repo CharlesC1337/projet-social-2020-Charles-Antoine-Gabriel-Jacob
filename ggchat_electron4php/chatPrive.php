@@ -15,7 +15,6 @@ use GGChat\classe\checker\Login as Login;
 use GGChat\classe\checker\Logout as Logout;
 use GGChat\classe\ChatPrive as ChatPrive;
 
-
 $LoginTopNav = new Login();//création login
 
 $LoginTopNav->check();//check pour le login submit
@@ -26,16 +25,13 @@ $LogoutTopNav->check();//check pour le logout submit
 
 //--------------------------computer--------------------------------//
 
-
 $PageChatPrincipal = new ChatPrive(); 
-
 
 $PageChatPrincipal->chatCheck();
 
 $PageChatPrincipal->htmlHead($PageChatPrincipal->title);
 
 $PageChatPrincipal->htmlTopNav('chatPrive.php');
-
 
 $PageChatPrincipal->chatPrint();
 
@@ -44,7 +40,4 @@ $PageChatPrincipal->chatInput();
 $PageChatPrincipal->Htmlclose();
 
 $PageChatPrincipal->affiche($PageChatPrincipal->doc)
-
-
-
 ?>

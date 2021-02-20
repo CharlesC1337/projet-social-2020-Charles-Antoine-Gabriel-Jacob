@@ -17,6 +17,7 @@ class StatistiqueDAO
 
         return $listeContenuGroup;
     }
+    
     public function getListeContenuLabel($resultat)
     {
         $DbhObject = new Dbh();
@@ -29,3 +30,4 @@ class StatistiqueDAO
         return $listeContenuLabel;
     }
 }
+?>

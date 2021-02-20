@@ -100,3 +100,4 @@ class ChatPrive extends Page
             </form>';    
     }
 }
+?>

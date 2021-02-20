@@ -1,5 +1,3 @@
-
-
 function myFunction() 
 {
     var x = document.getElementById("myTopnav");
@@ -9,4 +7,3 @@ function myFunction()
         x.className = "topnav";
     }
 }
-

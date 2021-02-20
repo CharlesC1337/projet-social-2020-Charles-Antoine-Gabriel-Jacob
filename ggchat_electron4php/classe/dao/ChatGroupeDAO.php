@@ -18,3 +18,4 @@ class ChatGroupeDAO
         return $requete;
     }
 }
+?>

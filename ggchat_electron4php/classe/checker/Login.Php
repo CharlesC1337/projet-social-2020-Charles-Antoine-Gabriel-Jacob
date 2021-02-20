@@ -3,26 +3,22 @@ namespace GGChat\classe\checker;
 
 use GGChat\includes\Dbh;
 
-
 class Login 
 {
     function __construct() // Constructeur
     {
         
     }
+    
     function check()
     {
-    
         if(isset($_POST['log_id']))
         {
-
             $f_id=$_POST['log_id'];
             switch($f_id)
             {
                 case 'login':
                     {
-                        
-
                         $uidpg = pg_escape_string($_POST['uid']);
                         $pwdpg = pg_escape_string($_POST['pwd']);
 
@@ -34,7 +30,6 @@ class Login
                         {
                             header("location: index.php?login=empty");
                             exit();
-
                         }
                         else
                         {
@@ -62,15 +57,12 @@ class Login
 
                                     if ($hasedPwdCheck == false)
                                     {
-
                                         header("location: index.php?login=error");
                                         exit();
-
                                     }
                                     elseif($hasedPwdCheck == true)
                                     {
                                         //log in the user here 
-
 
                                         $_SESSION['u_id'] = $data['id'];
                                         $_SESSION['u_first'] = $data['membre_first'];
@@ -86,20 +78,14 @@ class Login
                                     {
                                         header("location: index.php?login=error");
                                         exit();  
-
                                     }
-
                                 }
-
                             }
-
                         }
-
                     }
                 break;
             }   
         }
     } 
 }
-
-
+?>

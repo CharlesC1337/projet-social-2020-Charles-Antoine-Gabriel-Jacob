@@ -5,18 +5,15 @@ use GGChat\classe\Page;
 
 class Help extends Page
 {
-  
     public $title;
     
     public function __construct() // Constructeur
     {
         parent::__construct();
         $this->title = 'Aide';
-
     }
     
-    
-   public function contenuPresentation()
+    public function contenuPresentation()
     {
         $this->doc .= '<h1 id="titrePageh1">Aide</h1>';
         $this->doc .= '<h2 id="titreAideh2">Comment s\'inscrire</h1>';
@@ -25,6 +22,6 @@ class Help extends Page
         $this->doc .= '<p class="center">Pour pouvoir chatter, il suffit de se connecter et de choisir un groupe sur lequel chatter, les groupes étant disponible sur la page "Chat".</p>';
         $this->doc .= '<h2 id="titreAideh2">Pour tout autres questions</h1>';
         $this->doc .= '<p class="center">Vous pouvez nous contacter en envoyant un mail à ggchat@gmail.com.</p>';
-      
     }
 }
+?>

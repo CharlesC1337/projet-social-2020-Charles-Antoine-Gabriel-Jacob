@@ -7,14 +7,14 @@ use PDO;
 
 class ChatGroupe extends Page
 {
-  
-  public $title;
+    public $title;
 
-  public function __construct() 
-  {
-      parent::__construct();
-      $this->title= 'Liste des Chats';
-  }
+    public function __construct() 
+    {
+        parent::__construct();
+        $this->title= 'Liste des Chats';
+    }
+    
     public function groupChatPrint()
     {
         $this->doc .= '<h1 id="titrePageh1">Liste des Chats</h1>';
@@ -30,3 +30,4 @@ class ChatGroupe extends Page
         $this->doc.='</div>';
     }
 }
+?>

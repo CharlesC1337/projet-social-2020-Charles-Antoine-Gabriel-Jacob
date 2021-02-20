@@ -7,7 +7,6 @@ use PDO;
 
 class Contact extends Page
 {
-  
     public $title;
 
     public function __construct() // Constructeur demandant 2 paramètres
@@ -15,8 +14,8 @@ class Contact extends Page
         parent::__construct();
 
         $this->title= 'Contact';
-
     }
+    
     public function tableComputer()
     {
         $contactDAO = new ContactDAO();
@@ -35,19 +34,12 @@ class Contact extends Page
         $tableau = $contactDAO->getMembre();
         foreach ($tableau as $row) 
         {
-            
-            
             $this->doc .= "<tr><td>". $row["membre_first"] .
             "</td><td>" . $row["membre_last"] ."</td><td>". $row["membre_email"] ."</td><td>".
-             $row["membre_uid"] ."</td><td><a class=\"buttonPrivate\" href=\"ChatPrive.php?membre=".$row["membre_uid"]."\">Envoyer un message</a></td></tr>";
-
-            
+             $row["membre_uid"] ."</td><td><a class=\"buttonPrivate\" href=\"ChatPrive.php?membre=".$row["membre_uid"]."\">Envoyer un message</a></td></tr>";  
         }
 
         $this->doc .= '</tbody></table>';
-       
     }
-    
-
-
 }
+?>

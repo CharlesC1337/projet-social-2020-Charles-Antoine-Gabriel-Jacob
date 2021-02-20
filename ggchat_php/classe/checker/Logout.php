@@ -7,18 +7,16 @@ class Logout
     {
         
     }
+    
     function check()
     {
-    
             if (isset($_POST['log_id']))
             {
-              
                 $f_id=$_POST['log_id'];
                 switch ($f_id)
                 {
                     case 'logout':
                     {
-
                         session_start();
                         session_unset();
                         session_destroy();
@@ -26,19 +24,11 @@ class Logout
                         header("location: index.php?logout");
 
                         exit();
-
-
                     }
 
                     break; 
-                }   
-                        
-            }
-       
+                }            
+            }    
     }
-    
-    
-    
 }
-
-
+?>
