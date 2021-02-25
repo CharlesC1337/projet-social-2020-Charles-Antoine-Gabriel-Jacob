@@ -10,25 +10,59 @@ CREATE DATABASE ggchat
     LC_CTYPE = 'French_Canada.1252'
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
-	
+    
+-- Table: public.contact
+
+-- DROP TABLE public.contact;
+
+CREATE TABLE public.contact
+(
+    id integer NOT NULL DEFAULT nextval('contact_id_seq'::regclass),
+    fk_membre1 integer,
+    fk_membre2 integer,
+    CONSTRAINT contact_pkey PRIMARY KEY (id),
+    CONSTRAINT fk_membre1 FOREIGN KEY (fk_membre1)
+        REFERENCES public.membre (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT fk_membre2 FOREIGN KEY (fk_membre2)
+        REFERENCES public.membre (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.contact
+    OWNER to postgres;
+    
 -- Table: public.groupe
 
 -- DROP TABLE public.groupe;
 
 CREATE TABLE public.groupe
 (
-    id SERIAL NOT NULL,
+    id integer NOT NULL DEFAULT nextval('groupe_id_seq'::regclass),
     groupe_nom character varying(50) COLLATE pg_catalog."default",
     CONSTRAINT groupe_pkey PRIMARY KEY (id)
 )
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
 
+ALTER TABLE public.groupe
+    OWNER to postgres;
+    
 -- Table: public.membre
 
 -- DROP TABLE public.membre;
 
 CREATE TABLE public.membre
 (
-    id SERIAL NOT NULL,
+    id integer NOT NULL DEFAULT nextval('membre_id_seq'::regclass),
     membre_admin boolean,
     membre_first character varying(50) COLLATE pg_catalog."default",
     membre_last character varying(50) COLLATE pg_catalog."default",
@@ -37,14 +71,21 @@ CREATE TABLE public.membre
     membre_pwd character varying(262) COLLATE pg_catalog."default",
     CONSTRAINT membre_pkey PRIMARY KEY (id)
 )
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
 
+ALTER TABLE public.membre
+    OWNER to postgres;
+    
 -- Table: public.message_groupe
 
 -- DROP TABLE public.message_groupe;
 
 CREATE TABLE public.message_groupe
 (
-    id SERIAL NOT NULL,
+    id integer NOT NULL DEFAULT nextval('message_groupe_id_seq'::regclass),
     groupe_fkey integer,
     membre_fkey integer,
     message_groupe_contenu character varying(255) COLLATE pg_catalog."default",
@@ -58,14 +99,21 @@ CREATE TABLE public.message_groupe
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
 
+ALTER TABLE public.message_groupe
+    OWNER to postgres;
+    
 -- Table: public.message_groupe_archive
 
 -- DROP TABLE public.message_groupe_archive;
 
 CREATE TABLE public.message_groupe_archive
 (
-    id SERIAL NOT NULL,
+    id integer NOT NULL DEFAULT nextval('message_groupe_archive_id_seq'::regclass),
     groupe_fkey integer,
     membre_fkey integer,
     message_groupe_contenu character varying(255) COLLATE pg_catalog."default",
@@ -79,14 +127,21 @@ CREATE TABLE public.message_groupe_archive
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
 
+ALTER TABLE public.message_groupe_archive
+    OWNER to postgres;
+    
 -- Table: public.message_prive
 
 -- DROP TABLE public.message_prive;
 
 CREATE TABLE public.message_prive
 (
-    id SERIAL NOT NULL,
+    id integer NOT NULL DEFAULT nextval('message_prive_id_seq'::regclass),
     membre_envoyeur_fkey integer,
     membre_receveur_fkey integer,
     message_prive_contenu character varying(255) COLLATE pg_catalog."default",
@@ -100,14 +155,21 @@ CREATE TABLE public.message_prive
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
 
+ALTER TABLE public.message_prive
+    OWNER to postgres;
+    
 -- Table: public.message_prive_archive
 
 -- DROP TABLE public.message_prive_archive;
 
 CREATE TABLE public.message_prive_archive
 (
-    id SERIAL NOT NULL,
+    id integer NOT NULL DEFAULT nextval('message_prive_archive_id_seq'::regclass),
     membre_envoyeur_fkey integer,
     membre_receveur_fkey integer,
     message_prive_contenu character varying(255) COLLATE pg_catalog."default",
@@ -121,13 +183,10 @@ CREATE TABLE public.message_prive_archive
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
 
-CREATE INDEX index_message_groupe_contenu ON message_groupe(message_groupe_contenu)
-CREATE INDEX index_message_groupe_fkey ON message_groupe(groupe_fkey)
-CREATE INDEX index_message_membre_fkey ON message_groupe(membre_fkey)
-
-CREATE INDEX index_message_membre_envoyeur_fkey ON message_prive(membre_envoyeur_fkey)
-CREATE INDEX index_message_membre_receveur_fkey ON message_prive(membre_receveur_fkey)
-CREATE INDEX index_message_prive_contenu ON message_prive(message_prive_contenu)
-
-CREATE VIEW nombre_msg_group AS SELECT COUNT(id) as nombre, groupe_fkey FROM public.message_groupe GROUP BY groupe_fkey;
+ALTER TABLE public.message_prive_archive
+    OWNER to postgres;

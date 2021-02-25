@@ -247,6 +247,11 @@ img#profilePicTop{
     box-sizing: border-box;
 }
 
+.formGeneric label{
+    margin:1rem;
+    font-size: 18px;
+}
+
 .loginForm{
     padding: 2px 4px;
     margin:auto;
@@ -358,7 +363,7 @@ table, tr {
 	border-radius:4px;
 }
 
-.buttonPrivate{
+.buttonTableauContact{
     background-color:#2a538a;
     border: none;
     color: white;
@@ -372,7 +377,7 @@ table, tr {
     vertical-align: center;
 }
 
-.buttonPrivate:hover{
+.buttonTableauContact:hover{
     background-color:#638fc9;
     cursor: pointer;
 }

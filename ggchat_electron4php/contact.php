@@ -27,6 +27,10 @@ $LogoutTopNav->check();//check pour le logout submit
 
 $PageContactPrincipal = new Contact(); 
 
+$PageContactPrincipal->contactAdd();
+
+$PageContactPrincipal->contactDel();
+
 $PageContactPrincipal->htmlHead($PageContactPrincipal->title);
 
 $PageContactPrincipal->htmlTopNav('contact.php');

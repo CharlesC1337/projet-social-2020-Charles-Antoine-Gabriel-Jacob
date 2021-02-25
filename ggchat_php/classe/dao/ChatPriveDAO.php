@@ -31,7 +31,6 @@ class ChatPriveDAO
     
     public function getMsgPrive($id,$uid)
     {
-        
         $DbhObject = new Dbh();
         $dbh = $DbhObject->getDbh(); 
         $sql = "SELECT * FROM message_prive Where membre_envoyeur_fkey=".$id." AND membre_receveur_fkey=".$uid." OR membre_receveur_fkey=".$id." AND membre_envoyeur_fkey=".$uid;
